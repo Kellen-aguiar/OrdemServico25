@@ -254,7 +254,19 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUsuCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuCreateActionPerformed
-        
+        Usuario obj = new Usuario();
+        obj.setUsuario(txtUsuId.getText());
+        obj.setFone(txtUsuFone.setText());
+        obj.setLogin(txtUsuLogin.setText());
+        obj.setSenha(txtUsuSenha.setText());
+        obj.setPerfil(txtUsuPerfil.setText());
+        if (txtUsuId.getText().isEmpty()) || (txtUsuNome.getText().isEmpty()) || (txtUsuLogin.getText().isEmpty()) || (txtUsuSenha.getPassaword().length == 0()) || (txtUsuPerfil.getSelectedItem().equals("")){
+         JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios");   
+        } else{
+            UsuarioDAO dao = new UsuarioDAO();
+            dao.adicionarUsuario(obj);
+                
+        }
     }//GEN-LAST:event_btnUsuCreateActionPerformed
 
     private void btnUsuUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuUpdateActionPerformed
